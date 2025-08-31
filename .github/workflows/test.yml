@@ -1,0 +1,10 @@
+name: test.yml
+on:
+  workflow_dispatch:
+
+jobs:
+  func:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print hashFiles
+        run: echo ${{ hashFiles('**/package-lock.json') }}
