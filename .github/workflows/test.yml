@@ -8,7 +8,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Configure pages
+        uses: actions/configure-pages@v5
       - name: Display file hash
         run: |
           echo "package-lock.json 해시: ${{ hashFiles('**/package-lock.json') }}"
           echo "소스코드 파일 해시: ${{ hashFiles('**/*.[jt]s', '**/*.[jt]sx') }}"
+          echo $base_url
