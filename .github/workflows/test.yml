@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Configure pages
+      - name: Configure pages # 이 경우 next.config.ts 파일을 건드림
         uses: actions/configure-pages@v5
         with:
           static_site_generator: next
@@ -16,5 +16,3 @@ jobs:
         run: |
           echo "package-lock.json 해시: ${{ hashFiles('**/package-lock.json') }}"
           echo "소스코드 파일 해시: ${{ hashFiles('**/*.[jt]s', '**/*.[jt]sx') }}"
-          echo $BASE_PATH
-          echo $BASE_URL
