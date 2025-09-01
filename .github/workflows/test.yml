@@ -6,6 +6,8 @@ jobs:
   func:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Display file hash
         run: |
           echo "package-lock.json 해시: ${{ hashFiles('**/package-lock.json') }}"
