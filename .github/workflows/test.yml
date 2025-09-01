@@ -14,4 +14,5 @@ jobs:
         run: |
           echo "package-lock.json 해시: ${{ hashFiles('**/package-lock.json') }}"
           echo "소스코드 파일 해시: ${{ hashFiles('**/*.[jt]s', '**/*.[jt]sx') }}"
-          echo $base_url
+          echo $BASE_PATH
+          echo $BASE_URL
