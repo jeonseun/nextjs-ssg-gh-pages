@@ -25,6 +25,8 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
+      - name: 현재 워킹 디렉토리 확인
+        run: pwd
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
@@ -34,9 +36,9 @@ jobs:
         with:
           path: |
             .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]sx') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
       - name: Install dependencies
         run: npm ci
       - name: Build with Next.js
