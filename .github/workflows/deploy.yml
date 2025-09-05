@@ -25,11 +25,25 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
+      # ----------------- 👇 [추가 1] 수정 전 파일 내용 확인 -----------------
+      - name: 📝 Show next.config.js BEFORE modification
+        run: |
+          echo "--- Original next.config.js ---"
+          cat next.config.js
+          echo "---------------------------------"
 
+      # 'configure-pages' 액션 실행
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
           static_site_generator: next
+      # ----------------- 👇 [추가 2] 수정 후 파일 내용 확인 -----------------
+      - name: ✨ Show next.config.js AFTER modification
+        run: |
+          echo "--- Modified next.config.js in runner ---"
+          cat next.config.js
+          echo "-------------------------------------------"
+      
 
       - name: Restore cache
         uses: actions/cache@v4
